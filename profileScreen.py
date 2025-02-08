@@ -34,4 +34,4 @@ class ProfileScreen(Screen):
         self.job_label.text = f"Job: {job}" 
         self.confidence_label.text = f"Confidence: {confidence}" 
     def on_continue_pressed(self, instance):
-        self.manager.current = 'stock'
+        self.manager.current = 'social'
