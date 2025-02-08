@@ -38,16 +38,14 @@ class stockScreen(Screen):
         self.add_widget(layout)
 
     def update_rect(self, instance, value):
-        """Update rectangle size when widget resizes."""
         self.rect.size = instance.size
         self.rect.pos = instance.pos
 
     def learn_more(self, instance):
-        """Navigate to an Investing Info Screen."""
-        self.manager.current = "learnMore"
+        self.manager.current = "learn_more"
 
     def start_investing(self, instance):
-        """Navigate to an Investment Platform Screen."""
+        # connect to Nimrat's page
         self.manager.current = "invest"
 
 
