@@ -27,6 +27,8 @@ class socialScreen(Screen):
         self.res = Label(text="",font_size=16, size_hint_y=None, height = 50)
         self.backButton = Button(text="Back",size_hint=(None, None), size = (200,50))
         self.backButton.bind(on_press=self.goBack)
+        self.nextButton = Button(text="Next", size_hint=(None, None), size=(200, 50))
+        self.nextButton.bind(on_press=self.gotoStock)
 
         self.layout.add_widget(self.title)
         self.layout.add_widget(self.life)
@@ -35,6 +37,7 @@ class socialScreen(Screen):
         self.layout.add_widget(self.button3)
         self.layout.add_widget(self.res)
         self.layout.add_widget(self.backButton)
+        self.layout.add_widget(self.nextButton)
         self.add_widget(self.layout)
 
 
@@ -45,3 +48,6 @@ class socialScreen(Screen):
 
     def goBack(self, instance):
         self.manager.current = 'profile'
+
+    def gotoStock(self, instance):
+        self.manager.current = 'stock'
