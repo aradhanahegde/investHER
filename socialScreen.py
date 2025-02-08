@@ -15,19 +15,21 @@ class socialScreen(Screen):
             size_hint_y = None,
             height = 150
         )
-        self.button1 = Button(text="Spend $40 for the entry.", size_hint=(None,None), size = (300,50) )
+        self.button1 = Button(text="Spend $40 for the entry.", size_hint=(1,0.3), size = (300,50) )
         self.button1.bind(on_press=lambda x : self.showres("It was a fun night, but now you are running low on cash"))
 
-        self.button2 = Button(text="Tell your friends everyone can stay in ", size_hint=(None, None), size =(400,50))
+        self.button2 = Button(text="Tell your friends everyone can stay in ", size_hint=(1, 0.3), size =(400,50))
         self.button2.bind(on_press=lambda x :self.showres("Your friends agree that its a smart financial decision, and everyone had fun!"))
 
-        self.button3 = Button(text="Decline and decide to stay in", size_hint=(None, None), size=(300,50))
+        self.button3 = Button(text="Decline and decide to stay in", size_hint=(1, 0.3), size=(300,50))
         self.button3.bind(on_press=lambda x:self.showres("You miss out on the fun, but you saved money:)"))
 
         self.res = Label(text="",font_size=16, size_hint_y=None, height = 50)
-        self.backButton = Button(text="Back",size_hint=(None, None), size = (200,50))
+
+
+        self.backButton = Button(text="Back",size_hint=(None, None), size = (200,50), pos_hint = {'center_x': 0.5, 'center_y': 2})
         self.backButton.bind(on_press=self.goBack)
-        self.nextButton = Button(text="Next", size_hint=(None, None), size=(200, 50))
+        self.nextButton = Button(text="Next", size_hint=(None, None), size=(200, 50), pos_hint={'center_x': 0.5, 'center_y': 2})
         self.nextButton.bind(on_press=self.gotoStock)
 
         self.layout.add_widget(self.title)
@@ -51,3 +53,10 @@ class socialScreen(Screen):
 
     def gotoStock(self, instance):
         self.manager.current = 'stock'
+
+class SocialApp(App):
+    def build(self):
+        return socialScreen()
+
+if __name__ == '__main__':
+    SocialApp().run()
