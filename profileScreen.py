@@ -16,6 +16,7 @@ class ProfileScreen(Screen):
 
         # need to connect to next page- actual game
         cont_button = Button(text="Continue", size_hint=(None, None), size=(200, 50))
+        cont_button.bind(on_press=self.on_continue_pressed)
         
 
         self.layout.add_widget(self.profile_label)
@@ -32,4 +33,5 @@ class ProfileScreen(Screen):
         self.money_label.text = f"Amount: {amount}"
         self.job_label.text = f"Job: {job}" 
         self.confidence_label.text = f"Confidence: {confidence}" 
-
+    def on_continue_pressed(self, instance):
+        self.manager.current = 'stock'
