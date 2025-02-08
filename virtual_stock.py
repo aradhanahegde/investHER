@@ -1,4 +1,3 @@
-Better spam filters … Now Drive automatically moves suspicious files shared with you to spam. You can still report spam on your own.Learn more
 from stock_api import get_stock_price
 
 
