@@ -33,6 +33,3 @@ class ProfileScreen(Screen):
         self.job_label.text = f"Job: {job}" 
         self.confidence_label.text = f"Confidence: {confidence}" 
 
-    def go_back(self, instance):
-        """Return to StartScreen"""
-        self.manager.current = 'start'
