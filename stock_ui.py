@@ -1,4 +1,3 @@
-Better spam filters … Now Drive automatically moves suspicious files shared with you to spam. You can still report spam on your own.Learn more
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
