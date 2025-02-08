@@ -66,19 +66,4 @@ class StartScreen(Screen):
         layout.add_widget(job_button)
         self.add_widget(layout)
 
-class MyApp(App):
-    def build(self):
-        self.screen_manager = ScreenManager()
 
-        
-        self.narrative_screen = NarrativeScreen(name='narrative')
-        self.start_screen = StartScreen(name='start')
-
-        self.screen_manager.add_widget(self.narrative_screen)
-        self.screen_manager.add_widget(self.start_screen)
-
-        return self.screen_manager
-
-            
-if __name__ == '__main__':
-    MyApp().run()
