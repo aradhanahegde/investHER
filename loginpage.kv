@@ -1,0 +1,19 @@
+<loginpage>:
+    id: main_win
+    orientation: "vertical"
+    spacing: 10
+    space_x: self.size[0] / 3
+
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            source: 'files/login_page.png'
+            size: root.width, root.height
+            pos: self.pos
+    Button:
+        text: "Login"
+        pos_hint: {'center_x': 0.2, 'center_y': 0.2}
+        size_hint: .30, 0
+        background_color: (0.06, .36, .4, .675)
+        font_size: 40
