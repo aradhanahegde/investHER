@@ -54,9 +54,9 @@ class socialScreen(Screen):
     def gotoStock(self, instance):
         self.manager.current = 'stock'
 
-class SocialApp(App):
-    def build(self):
-        return socialScreen()
-
-if __name__ == '__main__':
-    SocialApp().run()
+# class SocialApp(App):
+#     def build(self):
+#         return socialScreen()
+#
+# if __name__ == '__main__':
+#     SocialApp().run()
