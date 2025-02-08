@@ -45,11 +45,3 @@ class socialScreen(Screen):
 
     def goBack(self, instance):
         self.manager.current = 'profile'
-
-
-class socialScreenApp(App):
-    def build(self):
-        return socialScreen()
-
-if __name__ == '__main__':
-    socialScreenApp().run()
