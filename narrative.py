@@ -52,18 +52,5 @@ class NarrativeScreen(Screen):
     def on_continue_pressed(self, instance):
         self.manager.current = 'start'
 
-class StartScreen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        layout = BoxLayout(orientation='vertical', spacing=10, padding=20)
-        self.label = Label(text='Where would you like to start?', size_hint_y=None, height=200, font_size=18)
-        highschool_button = Button(text="High School", size_hint=(1, None), size=(200, 50), pos_hint={'center:x': 0.5, 'center_y': 0.5})
-        college_button = Button(text="College", size_hint=(1, None), size=(200, 50), pos_hint={'center:x': 0.5, 'center_y': 0.5})
-        job_button = Button(text="Job", size_hint=(1, None), size=(200, 50), pos_hint={'center:x': 0.5, 'center_y': 0.5})
-        layout.add_widget(self.label)
-        layout.add_widget(highschool_button)
-        layout.add_widget(college_button), 
-        layout.add_widget(job_button)
-        self.add_widget(layout)
 
 
