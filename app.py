@@ -1,46 +1,30 @@
+from kivymd.app import MDApp
+from kivymd.uix.screenmanager import MDScreenManager
+from setup_screen import SetupScreen
+from avatar_screen import AvatarScreen
 import firebase_admin
 from firebase_admin import credentials, firestore
-import firebase_admin.auth
 
-# Path to your Firebase Admin SDK key file
-cred = credentials.Certificate('firebase-admin-sdk-key.json')
-
-# Initialize Firebase
+# Firebase Initialization
+cred = credentials.Certificate("firebase-admin-sdk-key.json")
 firebase_admin.initialize_app(cred)
-
-# Access Firestore
 db = firestore.client()
 
-# # Simple Test: Add a user
-# def add_user(user_id, name, currency):
-#     user_ref = db.collection('users').document(user_id)
-#     user_ref.set({
-#         'name': name,
-#         'currency': currency
-#     })
-#
-# # Test adding a user
-# add_user('user123', 'Alice', 1000)
-# print('User added successfully!')
+class InvestHerApp(MDApp):
+    def build(self):
+        sm = MDScreenManager()
 
-# Sign-Up Function
-def sign_up(email, password):
-    try:
-        user = auth.create_user(
-            email=email,
-            password=password
-        )
-        print(f'Successfully created user {user.uid}')
-    except firebase_admin.auth.EmailAlreadyExistsError:
-        print('This email is already in use!')
+        # Add all screens to the ScreenManager
+        sm.add_widget(LoginScreen(name="login"))
+        sm.add_widget(SetupScreen(name="setup"))
+        sm.add_widget(AvatarScreen(name="avatar"))
+        sm.add_widget(NarrativeScreen(name="narrative"))
 
-# Login Function
-def login(email, password):
-    try:
-        # Sign in with email and password
-        user = auth.get_user_by_email(email)
-        print(f'Logged in successfully: {user.uid}')
-        return user
-    except firebase_admin.auth.UserNotFoundError:
-        print('No user found with this email!')
-        return None
+        # Start with the login screen
+        sm.current = "login"
+
+        return sm
+
+
+if __name__ == "__main__":
+    InvestHerApp().run()
