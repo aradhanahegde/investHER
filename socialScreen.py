@@ -32,24 +32,24 @@ class socialScreen(Screen):
             color=[0, 0, 0, 1]
         )
 
-        # Buttons with responses
-        self.button1 = Button(text="Spend $40 for the entry.", size_hint=(1, 0.3), background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
+
+        self.button1 = Button(text="Spend $40 for the entry.", size_hint=(1, 0.3), background_normal="", background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
         self.button1.bind(on_press=lambda x: self.showres("It was a fun night, but now you are running low on cash"))
 
-        self.button2 = Button(text="Tell your friends everyone can stay in", size_hint=(1, 0.3), background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
+        self.button2 = Button(text="Tell your friends everyone can stay in", size_hint=(1, 0.3), background_normal="", background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
         self.button2.bind(on_press=lambda x: self.showres("Your friends agree that it's a smart financial decision, and everyone had fun!"))
 
-        self.button3 = Button(text="Decline and decide to stay in", size_hint=(1, 0.3), background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
+        self.button3 = Button(text="Decline and decide to stay in", size_hint=(1, 0.3), background_normal="",background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
         self.button3.bind(on_press=lambda x: self.showres("You miss out on the fun, but you saved money:)"))
 
-        # Result Label
+
         self.res = Label(text="", font_size=16, size_hint_y=None, height=50, color=[0, 0, 0, 1])  
 
         # Navigation Buttons
-        self.backButton = Button(text="Back", size_hint=(None, None), size=(200, 50), pos_hint={'center_x': 0.5}, background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
+        self.backButton = Button(text="Back", size_hint=(None, None), size=(200, 50),background_normal="", pos_hint={'center_x': 0.5}, background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
         self.backButton.bind(on_press=self.goBack)
         
-        self.nextButton = Button(text="Next", size_hint=(None, None), size=(200, 50), pos_hint={'center_x': 0.5}, background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
+        self.nextButton = Button(text="Next", size_hint=(None, None), size=(200, 50), background_normal="",pos_hint={'center_x': 0.5}, background_color=[0.984, 0.984, 0.898, 1], color=[0, 0, 0, 1])
         self.nextButton.bind(on_press=self.gotoStock)
 
         # Add widgets to layout
@@ -64,7 +64,7 @@ class socialScreen(Screen):
 
         self.add_widget(self.layout)
 
-    # Update the background rectangle when the screen resizes
+
     def update_rect(self, *args):
         self.rect.pos = self.pos
         self.rect.size = self.size
@@ -78,9 +78,10 @@ class socialScreen(Screen):
     def gotoStock(self, instance):
         self.manager.current = 'stock'
 
-class SocialApp(App):
-    def build(self):
-        return socialScreen()
 
-if __name__ == '__main__':
-    SocialApp().run()
+# class SocialApp(App):
+#     def build(self):
+#         return socialScreen()
+#
+# if __name__ == '__main__':
+#     SocialApp().run()
